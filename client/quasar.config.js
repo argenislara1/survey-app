@@ -37,6 +37,16 @@ export default defineConfig((ctx) => {
         browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],
         node: 'node20',
       },
+      
+      vueRouterMode: 'history', // available values: 'hash', 'history'
+      env: {
+       SERVER_URL: ctx.dev ? 'http://localhost:3000' : 'http://localhost:3000',
+       CREATOR_NAME: 'Argenis Lara',
+       CREATOR_EMAIL: 'argenislara2810@gmail.com',
+       LINKEDIN: 'https://www.linkedin.com/in/ArgenisLara/'
+     },
+     distDir: '../server/public',
+
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       // vueRouterBase,
@@ -89,7 +99,11 @@ export default defineConfig((ctx) => {
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
-    devServer: {
+    htmlVariables: {
+     productName: 'BAHS Student Job Survey App',
+     productDescription: 'The Bronx Aerospace High School Student Survey App collects job preferences from high school students.'
+   },
+   devServer: { 
       // https: true,
       open: true, // opens browser window automatically
     },
@@ -109,7 +123,9 @@ export default defineConfig((ctx) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: [
+        'Notify'
+      ],
     },
 
     // animations: 'all', // --- includes all animations
